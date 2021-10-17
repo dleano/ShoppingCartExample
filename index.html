@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="./css/styles.css" rel="stylesheet">
+     <title>Shopping cart</title>
+   
+</head>
+<body>
+  
+<div class="container">
+  <div class="heading">
+    <h1>
+      <span class="shopper">Shopping Cart</span> 
+    </h1>
+    
+    <a href="#" class="visibility-cart transition is-open">X</a>    
+  </div>
+  
+  <div class="cart transition is-open">
+    
+    <a href="#" class="btn btn-update">Update cart</a>
+    
+    
+    <div class="table">
+      
+      <div class="layout-inline row th">
+        <div class="col col-pro">Product</div>
+        <div class="col col-price align-center "> 
+          Price
+        </div>
+
+        <div class="col col-qty align-center">QTY
+          </div>
+          
+        <div class="col">Total</div>
+      </div>
+
+      
+      <div class="layout-inline row">
+
+        <div class="col col-pro layout-inline">
+          <img src=".\css\cute kitty.JPG" alt="kitten" />
+          <p>Scared Little Kitty</p>
+        </div>
+        
+        <div class="col col-price col-numeric align-center ">
+          <p>$59.99</p>
+        </div>
+
+                <!-- Quantity Box -->
+                <div class="quantity">
+                <button class="btn minus-btn disabled" type="button">-</button>
+                <input type="text" id="quantity" value="1">
+                <button class="btn plus-btn" type="button">+</button>
+                </div>
+               <!-- Quantity Box ends -->
+                   <!--will calculate price---->
+                   <p class="total-price">
+                     <span><i class="dollars"></i>$</span>
+                      <span id="price">100</span>
+                        </p>
+            <!-- <div class="col col-qty layout-inline"> -->
+            <!-- <a href="#" class="qty qty-minus">-</a> -->
+            <!-- <input type="numeric" value="" /> -->
+            <!-- <a href="#" class="qty qty-plus">+</a> -->
+            <!-- </div> -->
+
+      
+        <div class="col col-total col-numeric">               
+          <p> $59.99</p>
+        </div>
+      </div>
+      
+      <div class="layout-inline row row-bg2">
+
+        <div class="col col-pro layout-inline">
+          <img src="./css/kitty2.JPG" alt="kitten" />
+          <p>Playful Little Kitty</p>
+        </div>
+        
+        <div class="col col-price col-numeric align-center ">
+          <p>$23.99</p>
+        </div>
+
+        <div class="col col-qty  layout-inline">
+          <a href="#" class="qty qty-minus ">-</a>
+            <input type="numeric" value="" />
+          <a href="#" class="qty qty-plus">+</a>
+        </div>
+        
+    
+    
+        <div class="col col-total col-numeric">
+          <p>$23.99</p>
+        </div>      
+      
+      </div>
+      
+       <div class="layout-inline row">
+        
+        <div class="col col-pro layout-inline">
+          <img src="./css/kitty3.JPG" alt="kitten" />
+          <p>Funny Little Kitty</p>
+        </div>
+        
+        <div class="col col-price col-numeric align-center ">
+          <p>$59.99</p>
+        </div>
+
+        <div class="col col-qty layout-inline">
+          <a href="#" class="qty qty-minus">-</a>
+            <input type="numeric" value="" />
+          <a href="#" class="qty qty-plus">+</a>
+        </div>
+        
+
+         <div class="col col-total col-numeric">  
+           <p>$89.99</p>
+         </div>         
+      </div>
+  
+       <div class="tf">
+         <div class="row layout-inline">
+           <div class="col">
+   
+           <div class="col"></div>
+         </div>
+         <div class="row layout-inline">
+           <div class="col">
+             <p>Shipping</p>
+           </div>
+           <div class="col"></div>
+         </div>
+          <div class="row layout-inline">
+           <div class="col">
+             <p>Total</p>
+           </div>
+           <div class="col"></div>
+         </div>
+       </div>         
+  </div>
+    
+    <a href="#" class="btn btn-update">Update cart</a>
+  
+
+
+    <script>
+        //setting default attribute to disabled of minus button
+        document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
+
+        //taking value to increment decrement input value
+        var valueCount
+
+        //taking price value in variable
+        var price = document.getElementById("price").innerText;
+
+        //price calculation function
+        function priceTotal() {
+            var total = valueCount * price;
+            document.getElementById("price").innerText = total
+        }
+
+        //plus button
+        document.querySelector(".plus-btn").addEventListener("click", function() {
+            //getting value of input
+            valueCount = document.getElementById("quantity").value;
+
+            //input value increment by 1
+            valueCount++;
+
+            //setting increment input value
+            document.getElementById("quantity").value = valueCount;
+
+            if (valueCount > 1) {
+                document.querySelector(".minus-btn").removeAttribute("disabled");
+                document.querySelector(".minus-btn").classList.remove("disabled")
+            }
+
+            //calling price function
+            priceTotal()
+        })
+
+        //plus button
+        document.querySelector(".minus-btn").addEventListener("click", function() {
+            //getting value of input
+            valueCount = document.getElementById("quantity").value;
+
+            //input value increment by 1
+            valueCount--;
+
+            //setting increment input value
+            document.getElementById("quantity").value = valueCount
+
+            if (valueCount == 1) {
+                document.querySelector(".minus-btn").setAttribute("disabled", "disabled")
+            }
+
+            //calling price function
+            priceTotal()
+        })
+    </script>
+
+
+</div>
+<script src="./shoppingcart.js"></script>
+</body>
+</html>
+  
