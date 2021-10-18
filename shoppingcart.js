@@ -38,20 +38,20 @@ $(".visibility-cart").on("click", function () {
   $input.val(value);
 });
 
-$("a.qty-plus").on("click", function (e) {
-  e.preventDefault();
-  var $this = $(this);
-  var $input = $this.closest("div").find("input");
-  var value = parseInt($input.val());
+// $("a.qty-plus").on("click", function (e) {
+//   e.preventDefault();
+//   var $this = $(this);
+//   var $input = $this.closest("div").find("input");
+//   var value = parseInt($input.val());
 
-  if (value < 100) {
-    value = value + 1;
-  } else {
-    value = 100;
-  }
+//   if (value < 100) {
+//     value = value + 1;
+//   } else {
+//     value = 100;
+//   }
 
-  $input.val(value);
-});
+//   $input.val(value);
+// });
 
 // RESTRICT INPUTS TO NUMBERS ONLY WITH A MIN OF 0 AND A MAX 100
 $("input").on("blur", function () {
@@ -67,4 +67,4 @@ $("input").on("blur", function () {
 
 // Listener event to calculate score when pressing Submit button
 document.querySelector("#btnSubmit")
-  .addEventListener("click", () => calculateScore());
+  .addEventListener("click", () => priceTotal());
