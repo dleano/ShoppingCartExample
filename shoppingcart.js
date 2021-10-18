@@ -1,3 +1,7 @@
+ window.addEventListener("DOMContentLoaded", () => {
+  const start = document.querySelector("#start");
+   const submit = document.querySelector("#btnSubmit");
+   
 $(".visibility-cart").on("click", function () {
   var $btn = $(this);
   var $cart = $(".cart");
@@ -19,11 +23,11 @@ $(".visibility-cart").on("click", function () {
 });
 
 // SHOPPING CART PLUS OR MINUS
-$("a.qty-minus").on("click", function (e) {
-  e.preventDefault();
-  var $this = $(this);
-  var $input = $this.closest("div").find("input");
-  var value = parseInt($input.val());
+//$("a.qty-minus").on("click", function (e) {
+//  e.preventDefault();
+  //var $this = $(this);
+  //var $input = $this.closest("div").find("input");
+  //var value = parseInt($input.val());
 
   if (value > 1) {
     value = value - 1;
@@ -60,3 +64,7 @@ $("input").on("blur", function () {
     input.val(100);
   }
 });
+
+// Listener event to calculate score when pressing Submit button
+document.querySelector("#btnSubmit")
+  .addEventListener("click", () => calculateScore());
